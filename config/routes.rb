@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  
+
   namespace :brain do
-    resources :users
+    resources :users do
+      get '/profile', to: 'profile#show'
+      get '/profile/edit', to: 'profile#edit'
+      post '/profile', to: 'profile#update', as: 'post_profile_update'
+    end
   end
 
 

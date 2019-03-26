@@ -8,7 +8,7 @@ class Brain::UsersController < ApplicationController
     #calls find influencers method within user class
   end
 
-  
+
 
   # def '/discover' #goes to discovery page.
   #   #lists users with categories which were selected by user during account creation
