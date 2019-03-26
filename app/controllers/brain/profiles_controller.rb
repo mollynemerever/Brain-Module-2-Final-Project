@@ -18,6 +18,7 @@ class Brain::ProfilesController < ApplicationController
     #useful for user looking at their own profile, or others looking at their account
   end
 
+#need routes to edit/update for user's profile. note they cannot update posts 
 
 private
 
