@@ -6,9 +6,9 @@
 <%= influencer %> : <%= post_data[:latest_post_title] %> Updated At: <%= post_data[:latest_post_date] %> <br>
 <% end %>
 
-<%= link_to "View My Profile", brain_profile(@user) %>
+<%= link_to "View My Profile", brain_user_profile_path(@user) %>
 
-<%= link_to "Update/Edit My Account", edit_brain_user(@user) %>
+<%= link_to "Update/Edit My Account", brain_user_profile_edit_path(@user) %>
 
 <%= link_to "Create A Post"  %>
 

@@ -1,0 +1,48 @@
+<!-- shows user profile, form is prepopulated and allows for edits.  -->
+<!-- no edits to any posts   -->
+
+<h1>Edit My Profile</h1>
+
+<% if @user.errors.any?  %>
+ <div id="error explanation">
+ <h2>We found a few errors in your form:</h2>
+ <ul>
+ <% @user.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+ <% end  %>
+ </ul>
+<% end  %>
+
+<%= form_for @user, url: brain_user_post_profile_update_path do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :city %>
+<%= f.text_field :city %>
+
+<%= f.label :email %>s
+<%= f.text_field :email %>
+
+<%= f.label :professional_industry %>
+<%= f.text_field :professional_industry %>
+
+<%= f.label :about_me %>
+<%= f.text_field :about_me %>
+
+<%= f.label :photo_url %>
+<%= f.text_field :photo_url %>
+
+<%= f.collection_select :category_name, @categories, :itself, :itself%>
+
+<%= f.submit %>
+
+<% end  %>
+
+<h1> Delete A Post</h1>
+
+<% @posts.each do |post| %>
+  <%= post.title  %>
+  <%= form_tag  %>
+<% end %>
+
+<%= link_to "Back to My Homepage", brain_user_path(@user) %>

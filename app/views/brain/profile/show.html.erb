@@ -1,0 +1,30 @@
+
+<!-- ability to "follow" the user/shows if you already follow -->
+<%= link_to "Edit My Profile", brain_user_profile_edit_path(@user)  %>
+
+<%= link_to "My Homepage", brain_user_path(@user)  %>
+
+<h1><%= @user.name %></h1>
+
+<%= @user.photo_url %>
+
+<%= @user.city %>
+
+<%= @user.email %>
+
+<%= @user.professional_industry %>
+
+<%= @user.about_me %>
+
+<!-- feed of user's posts -->
+
+<h2> Posts: </h2>
+
+<ul><% @user.posts.each do |post| %>
+
+<li>  <%= post.title %>
+  <%= post.content_type %>
+  <%= post.content_link %>
+  <%= post.description %> </li>
+
+<% end  %></ul>
