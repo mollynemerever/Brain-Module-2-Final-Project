@@ -1,0 +1,15 @@
+<!-- shows the user's homepage/feed -->
+
+
+
+<% @influencer_hash.each do |influencer, post_data| %>
+<%= influencer %> : <%= post_data[:latest_post_title] %> Updated At: <%= post_data[:latest_post_date] %> <br>
+<% end %>
+
+<%= link_to "View My Profile", brain_profile(@user) %>
+
+<%= link_to "Update/Edit My Account", edit_brain_user(@user) %>
+
+<%= link_to "Create A Post"  %>
+
+<%= link_to "Discover Influencers"  %>
