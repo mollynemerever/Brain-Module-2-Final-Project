@@ -20,7 +20,7 @@
 <%= f.label :city %>
 <%= f.text_field :city %>
 
-<%= f.label :email %>s
+<%= f.label :email %>
 <%= f.text_field :email %>
 
 <%= f.label :professional_industry %>
@@ -41,8 +41,15 @@
 <h1> Delete A Post</h1>
 
 <% @posts.each do |post| %>
-  <%= post.title  %>
-  <%= form_tag  %>
+  <div class="post">
+   <span><%= post.title %></span>
+   <%= form_tag brain_user_post_path(post.user, post.id), method: "delete" do %>
+ <%= submit_tag "Delete" %>
+  <% end %>
+  </div>
 <% end %>
+
+<br>
+<br>
 
 <%= link_to "Back to My Homepage", brain_user_path(@user) %>
