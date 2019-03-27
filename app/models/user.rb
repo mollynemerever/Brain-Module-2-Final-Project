@@ -24,6 +24,8 @@ class User < ApplicationRecord
           influencer_data[inf.name] = {}
           influencer_data[inf.name][:latest_post_title] = latest_post.title
           influencer_data[inf.name][:latest_post_date] = (latest_post.created_at.strftime("%B, %d, %Y"))
+          influencer_data[inf.name][:user_id] = latest_post.user_id
+          influencer_data[inf.name][:post_id] = latest_post.id
      end
   #sort by created_at
       influencer_data.sort_by do | name, latest_post|

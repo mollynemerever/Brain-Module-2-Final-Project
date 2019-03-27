@@ -1,1 +1,30 @@
 <h1>show page for post </h1>
+
+<div>
+  Title: <%= @post.title %> <br>
+  Content Type: <%= @post.content_type %> <br>
+  Content Link: <%= @post.content_link %> <br>
+  Description: <%= @post.description %> <br>
+  Posted At: <%= (@post.created_at.strftime("%B, %d, %Y")) %> <br>
+</div>
+
+<div >
+  <h3>Comments</h3>
+    <ul>
+
+    <% @comments.each do |comment| %>
+      <li><%= comment.find_user %> <br>
+         <%= comment.text %> <br>
+        written at <%= (comment.created_at.strftime("%B, %d, %Y")) %></li>
+    <% end  %>
+  </ul>
+</div>
+
+
+<div>
+  <%= form_for @new_comment, url: brain_user_post_comments_path(@current_user, @post.id) do |f| %>
+  <%= f.label :text, "250 characters" %>
+  <%= f.text_area :text %>
+  <%= f.submit "Create Comment" %>
+  <% end  %>
+</div>
