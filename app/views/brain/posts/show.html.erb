@@ -1,21 +1,28 @@
-<h1>show page for post </h1>
+<h1><%= @post.title %> </h1>
 
 <div>
-  Title: <%= @post.title %> <br>
-  Content Type: <%= @post.content_type %> <br>
-  Content Link: <%= @post.content_link %> <br>
-  Description: <%= @post.description %> <br>
+  Published By: <%= User.find(@author_id).name %> <br>
+  <br>
   Posted At: <%= (@post.created_at.strftime("%B, %d, %Y")) %> <br>
+  <br>
+  Content Type: <%= @post.content_type %> <br> <!-- do we need this on show page -->
+  <br>
+  Content Link: <%= link_to "content source", @post.content_link, target: :_blank %> <br>
+  <br>
+  Description: <%= @post.description %> <br>
+  <br>
+
 </div>
 
 <div >
-  <h3>Comments</h3>
+  <%= link_to image_tag("1f9e0.png"), brain_user_post_brains_path(@current_user, @post.id), method: :post, controller: 'brains'%> <%= @post.brains.count %> <br>
+   <h3><%= image_tag("1f4ac.png") %> Comments:</h3>
     <ul>
 
     <% @comments.each do |comment| %>
-      <li><%= comment.find_user %> <br>
+      <li><%= comment.find_user %> posted on <%= (comment.created_at.strftime("%B %d, %Y")) %> <br>
          <%= comment.text %> <br>
-        written at <%= (comment.created_at.strftime("%B, %d, %Y")) %></li>
+        </li>
     <% end  %>
   </ul>
 </div>
@@ -23,8 +30,11 @@
 
 <div>
   <%= form_for @new_comment, url: brain_user_post_comments_path(@current_user, @post.id) do |f| %>
-  <%= f.label :text, "250 characters" %>
-  <%= f.text_area :text %>
+  <%= f.text_area :text, maxlength: 200 %> <br>
+  <%= f.label :text, "200 characters" %> <br>
+  <br>
   <%= f.submit "Create Comment" %>
   <% end  %>
 </div>
+<br>
+<%= link_to "Back to Homepage", brain_user_path(@current_user) %>

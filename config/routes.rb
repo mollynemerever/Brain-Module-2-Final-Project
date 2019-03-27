@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :brain do
     resources :sessions, only: [:new, :create, :destroy]
     resources :users do
+      get '/discover', to: 'users#discover'
       post '/user_influencer_relationships', to: 'user_influencer_relationships#create'
       get '/profile', to: 'profile#show'
       get '/profile/edit', to: 'profile#edit'

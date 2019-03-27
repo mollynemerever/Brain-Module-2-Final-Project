@@ -3,20 +3,20 @@
 
 <%= form_for @post, url: brain_user_posts_path do |f|  %>
  <%= f.label :title %>
- <%= f.text_field :title  %>
-
+ <%= f.text_field :title  %> <br>
+<br>
  <%= f.label :description %>
- <%= f.text_field :description  %>
-
+ <%= f.text_field :description  %> <br>
+<br>
  <%= f.label :content_link %>
- <%= f.text_field :content_link  %>
-
+ <%= f.text_field :content_link  %> <br>
+<br>
  <%= f.label :content_type %>
- <%= f.collection_select :content_type, @content_types, :itself, :itself %>
-
-
+ <%= f.collection_select :content_type, @content_types, :itself, :itself %><br>
+<br>
 <%= f.submit %>
-
+<br>
 <% end  %>
-
+<br>
+<br>
 <%= link_to "My Homepage", brain_user_path(@user) %>

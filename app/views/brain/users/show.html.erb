@@ -1,19 +1,18 @@
 <!-- shows the user's homepage/feed -->
 
+<h1>Welcome, <%= @user.name %>!</h1>
 
+<%= link_to "Update/Edit My Account", brain_user_profile_edit_path(@user) %> <br>
+<%= link_to "View My Profile", brain_user_profile_path(@user) %> <br>
+<%= link_to "Create A Post", new_brain_user_post_path(@user.id)  %> <br>
+<%= link_to "Discover Influencers", brain_user_discover_path(@user) %> <br>
+<br>
+
+<h2>My Feed:</h2>
 
 <% @influencer_hash.each do |influencer, post_data| %>
-<%= influencer %> : <%= link_to post_data[:latest_post_title], brain_user_post_path( post_data[:user_id] ,post_data[:post_id]) %> Updated At: <%= post_data[:latest_post_date] %> <br>
-<%= image_tag("1f9e0.png") %>
+  <%= link_to post_data[:latest_post_title], brain_user_post_path( post_data[:user_id],post_data[:post_id]) %> <br>
+  By: <%= influencer %> <br>
+  Posted At: <%= post_data[:latest_post_date] %> <br>
+  <%= image_tag("1f4ac.png")%> <%= post_data[:comment_count] %>  <%= image_tag("1f9e0.png") %> <%= post_data[:brain_count] %>
 <% end %>
-
-<%= link_to "View My Profile", brain_user_profile_path(@user) %>
-
-<%= link_to "Update/Edit My Account", brain_user_profile_edit_path(@user) %>
-
-<%= link_to "Create A Post", new_brain_user_post_path(@user.id)  %>
-
-<%= link_to "Discover Influencers"  %> <br>
-
-<br>
-<br>

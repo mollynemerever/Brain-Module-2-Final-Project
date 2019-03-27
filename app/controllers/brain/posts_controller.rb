@@ -13,11 +13,12 @@ class Brain::PostsController < ApplicationController
   end
 
   def show
-
+    @author_id = Post.find(params[:id]).user_id
+    #byebug
+    #@author = User.find(@author_id).name
     @new_comment = Comment.new
     @comments = @post.sorted_comments
     @current_user = session[:user_id]
-
   end
 
   def new
@@ -27,19 +28,15 @@ class Brain::PostsController < ApplicationController
   end
 
   def create
-
     @user = User.find(params[:user_id])
     @post = Post.new(post_params)
     @user.posts << @post
-    binding.pry
     if @post.save
-
       @user.save
       redirect_to brain_user_profile_path(@user)
     else
       render :new
     end
-
   end
 
   private

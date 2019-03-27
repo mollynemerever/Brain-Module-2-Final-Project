@@ -1,6 +1,8 @@
 
 <!-- ability to "follow" the user/shows if you already follow -->
 
+<h1><%= @user.name %></h1>
+
 <% if @current_user.id != @user.id  %>
   <% if @current_user.influencer_ids.include?(@user.id)  %>
     <h3>Influencing Me</h3>
@@ -18,7 +20,7 @@
 <%= link_to "My Homepage", brain_user_path(@current_user.id)  %> <br>
 
 
-<h1><%= @user.name %></h1>
+
 
 <%= @user.photo_url %><br>
 
@@ -30,19 +32,20 @@
 
 <%= @user.about_me %><br>
 
-<!-- feed of user's posts -->
+<!-- feed of user's posts to get into post show page, click title-->
 
 <h2> Posts: </h2>
 
 <ul><% @post.each do |post| %>
 
-<li>  <%= post.title %>
-  <%= post.content_type %>
-  <%= post.content_link %>
-  <%= post.description %>
-  <%= "show comments" %>
+<li>  <%= link_to post.title, brain_user_post_path(@user.id, post.id)%> <br>
+  <%= post.content_type %> <br>
+  <%= post.content_link %> <br> <!-- do we need to show this in feed -->
+  <%= post.description %> <br> <!-- do we need to show this in feed -->
+  <br>
+  <%= image_tag("1f4ac.png") %> <%= post.comments.count %>
 
-<%= link_to image_tag("1f9e0.png"), brain_user_post_brains_path(@user.id, post.id), method: :post, controller: 'brains'%>
- <%= post.brains.count %></li>
+  <%=image_tag("1f9e0.png")%> <%= post.brains.count %>
+ </li>
 
 <% end  %></ul>
