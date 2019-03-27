@@ -20,11 +20,15 @@
 
 <h2> Posts: </h2>
 
-<ul><% @user.posts.each do |post| %>
+<ul><% @post.each do |post| %>
 
 <li>  <%= post.title %>
   <%= post.content_type %>
   <%= post.content_link %>
-  <%= post.description %> </li>
+  <%= post.description %>
+  <%= "show comments" %>
+
+<%= link_to image_tag("1f9e0.png"), brain_user_post_brains_path(@user.id, post.id), method: :post, controller: 'brains'%>
+ <%= post.brains.count %></li>
 
 <% end  %></ul>

@@ -17,13 +17,15 @@ class Brain::ProfileController < ApplicationController
   end
 
   def show
-    #shows the user profile
+    @post = @user.posts.sort_by do |post|
+      post.created_at
+    end.reverse
   end
 
   def edit
     @categories = ['Technology', 'Retail', 'Consulting', 'Medicine', 'Real Estate', 'Higher Education'] # or should this be more niche? (all categories within tech)
     @posts = @user.posts
-   #gives user ability to edit their account info, delete posts 
+   #gives user ability to edit their account info, delete posts
   end
 
   def update
