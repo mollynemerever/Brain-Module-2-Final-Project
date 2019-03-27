@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :brain do
+    resources :sessions, only: [:new, :create, :destroy]
     resources :users do
       get '/profile', to: 'profile#show'
       get '/profile/edit', to: 'profile#edit'
