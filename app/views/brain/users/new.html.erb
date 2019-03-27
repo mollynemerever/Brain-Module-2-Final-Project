@@ -1,0 +1,30 @@
+<% if flash[:message] %>
+  <%=  flash[:message] %>
+  <% end  %>
+
+  <%= form_for @user, url: brain_users_path do |f| %>
+
+  Name: <%= f.text_field :name%> <br>
+  <br>
+  Username: <%= f.text_field :username %> <br>
+  <br>
+  Password:  <%= f.text_field :password %> <br>
+  <br>
+  Password Confirmation:  <%= f.text_field :password_confirmation %> <br>
+  <br>
+  City: <%= f.text_field :city%> <br>
+  <br>
+  Email: <%= f.text_field :email %> <br>
+  <br>
+  Professional Industry: <%= f.text_field :professional_industry %> <br>
+  <br>
+  About Me: <%= f.text_field :about_me %> <br>
+  <br>
+  Photo: <%= f.text_field :photo_url %> <br>
+  <br>
+  Interests: <%= f.collection_select :category_name, @categories, :itself, :itself %> <br>
+  <br>
+
+  <%= f.submit "Create Account"%>
+
+<% end %>

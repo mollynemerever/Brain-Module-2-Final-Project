@@ -1,0 +1,18 @@
+<% if flash[:message] %>
+  <%=  flash[:message] %>
+<% end  %>
+
+<%= form_tag brain_sessions_path do %>
+  <%= label_tag :username %>
+  <div class="field">
+    <%= text_field_tag :username  %>
+  </div>
+  <%= label_tag :password %>
+  <div class="field">
+    <%= password_field_tag :password %>
+  </div>
+  <%= submit_tag "Login" %>
+<% end  %>
+
+
+<%= link_to "Create Account", new_brain_user_path %>
