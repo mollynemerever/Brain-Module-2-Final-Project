@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :brain do
     resources :sessions, only: [:new, :create, :destroy]
     resources :users do
+      post '/user_influencer_relationships', to: 'user_influencer_relationships#create'
       get '/profile', to: 'profile#show'
       get '/profile/edit', to: 'profile#edit'
       post '/profile', to: 'profile#update', as: 'post_profile_update'
@@ -12,23 +13,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
-
-
-
-
-
-
-
-
-#get path leads to welcome/log in
-get '/brain', to: 'profile#login'
-
-post '/brain', to: 'profile#create' #creates a new account
-
-
-# need a post for '/'
-
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
