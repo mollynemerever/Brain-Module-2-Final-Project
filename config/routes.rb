@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       get '/profile', to: 'profile#show'
       get '/profile/edit', to: 'profile#edit'
       post '/profile', to: 'profile#update', as: 'post_profile_update'
-      resources :posts, only: [:show, :destroy, :new, :create]
+      resources :posts, only: [:show, :destroy, :new, :create] do
+        post '/brains', to: 'brains#create'
+      end
     end
   end
 

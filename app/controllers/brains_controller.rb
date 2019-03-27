@@ -1,7 +1,0 @@
-class BrainsController < ApplicationController
-
-
-
-
-
-end

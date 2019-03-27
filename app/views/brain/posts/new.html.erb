@@ -1,1 +1,22 @@
 <!-- form to create a new post, can also save as draft -->
+<h1>Create Post</h1>
+
+<%= form_for @post, url: brain_user_posts_path do |f|  %>
+ <%= f.label :title %>
+ <%= f.text_field :title  %>
+
+ <%= f.label :description %>
+ <%= f.text_field :description  %>
+
+ <%= f.label :content_link %>
+ <%= f.text_field :content_link  %>
+
+ <%= f.label :content_type %>
+ <%= f.collection_select :content_type, @content_types, :itself, :itself %>
+
+
+<%= f.submit %>
+
+<% end  %>
+
+<%= link_to "My Homepage", brain_user_path(@user) %>
