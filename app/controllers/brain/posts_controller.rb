@@ -13,6 +13,11 @@ class Brain::PostsController < ApplicationController
   end
 
   def show
+
+    @new_comment = Comment.new
+    @comments = @post.sorted_comments
+    @current_user = session[:user_id]
+
   end
 
   def new

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post '/profile', to: 'profile#update', as: 'post_profile_update'
       resources :posts, only: [:show, :destroy, :new, :create] do
         post '/brains', to: 'brains#create'
+        post '/comments', to: 'comments#create'
       end
     end
   end
