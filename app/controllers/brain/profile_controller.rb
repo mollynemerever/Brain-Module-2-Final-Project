@@ -2,12 +2,12 @@ class Brain::ProfileController < ApplicationController
 
   before_action :set_user, only: [:show, :edit]
 
-  def login #renders login form
+  def login 
     @profile = User.new
     @categories = ['Technology', 'Retail', 'Consulting', 'Medicine', 'Real Estate', 'Higher Education'] # or should this be more niche? (all categories within tech)
   end
 
-  def create #creates new account
+  def create
     @profile = User.new(user_params)
     if @profile.save
       redirect_to brain_user_path(@profile)
@@ -26,7 +26,6 @@ class Brain::ProfileController < ApplicationController
   def edit
     @categories = ['Technology', 'Retail', 'Consulting', 'Medicine', 'Real Estate', 'Higher Education'] # or should this be more niche? (all categories within tech)
     @posts = @user.posts
-   #gives user ability to edit their account info, delete posts
   end
 
   def update

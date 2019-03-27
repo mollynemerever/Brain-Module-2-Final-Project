@@ -15,25 +15,25 @@
 
 <%= form_for @user, url: brain_user_post_profile_update_path do |f| %>
 <%= f.label :name %>
-<%= f.text_field :name %>
-
+<%= f.text_field :name %> <br>
+<br>
 <%= f.label :city %>
-<%= f.text_field :city %>
-
+<%= f.text_field :city %>  <br>
+<br>
 <%= f.label :email %>
-<%= f.text_field :email %>
-
+<%= f.text_field :email %>  <br>
+<br>
 <%= f.label :professional_industry %>
-<%= f.text_field :professional_industry %>
-
+<%= f.text_field :professional_industry %>  <br>
+<br>
 <%= f.label :about_me %>
-<%= f.text_field :about_me %>
-
+<%= f.text_field :about_me %>  <br>
+<br>
 <%= f.label :photo_url %>
-<%= f.text_field :photo_url %>
-
-<%= f.collection_select :category_name, @categories, :itself, :itself%>
-
+<%= f.text_field :photo_url %>  <br>
+<br>
+<%= f.collection_select :category_name, @categories, :itself, :itself%>  <br>
+<br>
 <%= f.submit %>
 
 <% end  %>
@@ -42,7 +42,7 @@
 
 <% @posts.each do |post| %>
   <div class="post">
-   <span><%= post.title %></span>
+   <span><%= link_to post.title, brain_user_post_path(@user.id, post.id) %></span>
    <%= form_tag brain_user_post_path(post.user, post.id), method: "delete" do %>
  <%= submit_tag "Delete" %>
   <% end %>

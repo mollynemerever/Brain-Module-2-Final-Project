@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
     #find user-influencer relationships from join table
     influencer_ids = UserInfluencerRelationship.where("user_id = ?", self.id).pluck("influencer_id")
-     #byebug
     #find user instances tied to the id
     influencer_objects = Array.new
      influencer_ids.each do |inf|
@@ -24,6 +23,8 @@ class User < ApplicationRecord
           influencer_data[inf.name][:latest_post_date] = (latest_post.created_at.strftime("%B, %d, %Y"))
           influencer_data[inf.name][:user_id] = latest_post.user_id
           influencer_data[inf.name][:post_id] = latest_post.id
+          influencer_data[inf.name][:comment_count] = latest_post.comments.count
+          influencer_data[inf.name][:brain_count] = latest_post.brains.count
      end
   #sort by created_at
       influencer_data.sort_by do | name, latest_post|

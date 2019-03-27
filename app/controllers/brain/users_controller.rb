@@ -2,10 +2,8 @@ class Brain::UsersController < ApplicationController
 
   before_action :set_user, only: [:show]
 
-  def show #shows the user's homepage/feed
-
+  def show
     @influencer_hash = @user.find_influencers
-    #calls find influencers method within user class
   end
 
   def new
@@ -26,10 +24,10 @@ class Brain::UsersController < ApplicationController
   end
 
 
-
-  # def '/discover' #goes to discovery page.
+  def discover #goes to discovery page.
+    @users = User.all 
   #   #lists users with categories which were selected by user during account creation
-  # end
+  end
 
 
   private
