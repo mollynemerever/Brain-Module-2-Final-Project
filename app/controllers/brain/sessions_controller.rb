@@ -1,5 +1,4 @@
 class Brain::SessionsController < ApplicationController
-
   skip_before_action :authenticate_user, only: [:new, :create]
 
    def new
@@ -12,13 +11,13 @@ class Brain::SessionsController < ApplicationController
        redirect_to brain_user_path(user)
      else
        flash[:message] = 'Incorrect Login'
-       redirect_to new_brain_session
+       redirect_to new_brain_session_path
      end
    end
 
    def destroy
      session.clear
-     redirect_to new_brain_session
+     redirect_to new_brain_session_path
    end
 
 end

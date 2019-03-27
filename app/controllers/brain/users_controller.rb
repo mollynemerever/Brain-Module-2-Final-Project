@@ -1,6 +1,7 @@
 class Brain::UsersController < ApplicationController
 
   before_action :set_user, only: [:show]
+  skip_before_action :authenticate_user, only: [:new, :create]
 
   def show #shows the user's homepage/feed
 
