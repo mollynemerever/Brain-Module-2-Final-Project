@@ -5,8 +5,6 @@ class User < ApplicationRecord
   has_many :comments
   has_secure_password
 
-
-
   def find_influencers
 
     #find user-influencer relationships from join table
@@ -33,7 +31,9 @@ class User < ApplicationRecord
       end
   end
 
-
+def influencer_ids
+  influencer_ids = UserInfluencerRelationship.where("user_id = ?", self.id).pluck("influencer_id")
+end
 
 
 end

@@ -17,6 +17,7 @@ class Brain::ProfileController < ApplicationController
   end
 
   def show
+    @current_user = User.find(session[:user_id])
     @post = @user.posts.sort_by do |post|
       post.created_at
     end.reverse
