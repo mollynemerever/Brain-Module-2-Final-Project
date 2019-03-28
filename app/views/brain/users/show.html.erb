@@ -12,7 +12,7 @@
 
 <% @influencer_hash.each do |influencer, post_data| %>
   <%= link_to post_data[:latest_post_title], brain_user_post_path( post_data[:user_id],post_data[:post_id]) %> <br>
-  By: <%= influencer %> <br>
-  Posted At: <%= post_data[:latest_post_date] %> <br>
+  Content Type: <%= post_data[:content_type] %> <br>
+  Posted By: <%= influencer %> on  <%= post_data[:latest_post_date] %> <br>
   <%= image_tag("1f4ac.png")%> <%= post_data[:comment_count] %>  <%= image_tag("1f9e0.png") %> <%= post_data[:brain_count] %>
 <% end %>
