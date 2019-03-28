@@ -12,14 +12,6 @@
   <br>
   Password Confirmation:  <%= f.text_field :password_confirmation %> <br>
   <br>
-  City: <%= f.text_field :city%> <br>
-  <br>
-  Email: <%= f.text_field :email %> <br>
-  <br>
-  Professional Industry: <%= f.text_field :professional_industry %> <br>
-  <br>
-  About Me: <%= f.text_field :about_me %> <br>
-  <br>
   Photo: <%= f.text_field :photo_url %> <br>
   <br>
   Professional Industry: <%= f.collection_select :category_name, @categories, :itself, :itself %> <br>

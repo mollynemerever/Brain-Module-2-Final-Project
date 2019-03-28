@@ -27,7 +27,7 @@ class Brain::UsersController < ApplicationController
 
   def discover
     @posts = Post.all
-    
+
 
     #lists users with categories which were selected by user during account creation
   end
@@ -40,7 +40,7 @@ class Brain::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :photo_url, :city, :email, :professional_industry, :about_me, :username, :password, :password_confirmation)
+    params.require(:user).permit(:name, :photo_url, :professional_industry, :username, :password, :password_confirmation)
   end
 
 end
