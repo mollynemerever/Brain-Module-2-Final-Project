@@ -1,35 +1,39 @@
 <h1><%= @user.name %></h1>
 
-<% if @current_user.id != @user.id  %>
-  <% if @current_user.influencer_ids.include?(@user.id)  %>
-    <h3>Influencing Me</h3>
-  <% else %>
-    <%= form_for @current_user, url: brain_user_user_influencer_relationships_path(@current_user.id), method: :post do |f| %>
-    <%= f.hidden_field :influencer_id, value: @user.id %>
-    <%= f.submit "Influence Me" %>
+<div class="">
+  <% if @current_user.id != @user.id  %>
+    <% if @current_user.influencer_ids.include?(@user.id)  %>
+      <h3>Influencing Me</h3>
+
+      <!-- form for unfollow button -->
+      <span>
+      <%= form_for @current_user, url: brain_user_delete_relationship_path(@current_user.id), method: :delete do |f| %>
+      <%= f.hidden_field :influencer_id, value: @user.id %>
+      <%= f.submit "Unfollow" %>
+      <% end %>
+      </span>
+
+    <% else %>
+      <%= form_for @current_user, url: brain_user_user_influencer_relationships_path(@current_user.id), method: :post do |f| %>
+      <%= f.hidden_field :influencer_id, value: @user.id %>
+      <%= f.submit "Influence Me" %>
+      <% end %>
     <% end %>
-  <% end %>
-<% else %>
-    <%= link_to "Edit My Profile", brain_user_profile_edit_path(@user)  %>
-<% end  %> <br>
+  <% else %>
+      <%= link_to "Edit My Profile", brain_user_profile_edit_path(@user)  %>
+  <% end  %> <br>
+</div>
 
 
-<%= link_to "My Homepage", brain_user_path(@current_user.id)  %> <br>
-
-
-
-
-<%= @user.photo_url %><br>
-
-
-<%= @user.professional_industry %><br>
-
+<div class="">
+  <%= @user.photo_url %><br>
+  <%= @user.professional_industry %><br>
+</div>
 
 
 <div class="container">
    <div class="row">
      <div class="col-lg-8 col-md-10 mx-auto">
-
 
 <h2> Posts: </h2>
 
@@ -46,11 +50,15 @@
 
            </h3>
          </a>
-         <p class="post-meta"><%= image_tag("1f4ac.png") %> <%= post.comments.count %>  | <%=image_tag("1f9e0.png")%> <%= post.brains.count %></p>
+         <p class="post-meta"><%= image_tag("1f4ac.png", height: "45", width: "45") %> <%= post.comments.count %>    |    <%=image_tag("1f9e0.png", height: "45", width: "45")%> <%= post.brains.count %></p>
        </div>
     <hr>
 <% end %>
 
    </div>
   </div>
+</div>
+
+<div class="">
+  <%= link_to "My Homepage", brain_user_path(@current_user.id)  %>
 </div>

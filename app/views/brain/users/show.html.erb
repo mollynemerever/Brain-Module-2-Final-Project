@@ -2,6 +2,9 @@
 
 <h1>Welcome, <%= @user.name %>!</h1>
 
+<p class="copyright text-muted">Influencing: <%= @influencer_count %> | Influencers: <%= @influencer_count %></p>
+<br>
+
 <%= link_to "Update/Edit My Account", brain_user_profile_edit_path(@user) %> <br>
 <%= link_to "View My Profile", brain_user_profile_path(@user) %> <br>
 <%= link_to "Create A Post", new_brain_user_post_path(@user.id)  %> <br>
@@ -26,7 +29,7 @@
 
        </h3>
      </a>
-     <p class="post-meta"><%= image_tag("1f4ac.png") %> <%= post_data[:comment_count] %>  | <%=image_tag("1f9e0.png")%> <%= post_data[:brain_count] %></p>
+     <p class="post-meta"><%= image_tag("1f4ac.png", height: "45", width: "45") %> <%= post_data[:comment_count] %>  | <%=image_tag("1f9e0.png", height: "45", width: "45")%> <%= post_data[:brain_count] %></p>
    </div>
 <hr>
 <% end %>

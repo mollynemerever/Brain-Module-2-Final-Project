@@ -37,5 +37,9 @@ def influencer_ids
   influencer_ids = UserInfluencerRelationship.where("user_id = ?", self.id).pluck("influencer_id")
 end
 
+def influence_num
+  UserInfluencerRelationship.where("influencer_id = #{self.id}").count
+end
+
 
 end

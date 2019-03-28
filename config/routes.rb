@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users do
       get '/discover', to: 'users#discover'
       post '/user_influencer_relationships', to: 'user_influencer_relationships#create'
+      delete '/user_influencer_relationships', to: 'user_influencer_relationships#destroy', as: 'delete_relationship'
       get '/profile', to: 'profile#show'
       get '/profile/edit', to: 'profile#edit'
       post '/profile', to: 'profile#update', as: 'post_profile_update'

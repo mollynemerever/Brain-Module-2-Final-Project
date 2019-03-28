@@ -1,7 +1,7 @@
 <h1><%= @post.title %> </h1>
 
 <div>
-  Published By: <%= User.find(@author_id).name %> <br>
+  Published By: <%= link_to User.find(@author_id).name, brain_user_path(User.find(@author_id)) %> <br>
   <br>
   Posted At: <%= (@post.created_at.strftime("%B, %d, %Y")) %> <br>
   <br>
@@ -15,8 +15,8 @@
 </div>
 
 <div >
-  <%= link_to image_tag("1f9e0.png"), brain_user_post_brains_path(@current_user, @post.id), method: :post, controller: 'brains'%> <%= @post.brains.count %> <br>
-   <h3><%= image_tag("1f4ac.png") %> Comments:</h3>
+  <%= link_to image_tag("1f9e0.png", height: "45", width: "45"), brain_user_post_brains_path(@current_user, @post.id), method: :post, controller: 'brains'%> <%= @post.brains.count %> <br>
+   <h4><%= image_tag("1f4ac.png", height: "45", width: "45") %> Comments:</h4>
     <ul>
 
     <% @comments.each do |comment| %>
