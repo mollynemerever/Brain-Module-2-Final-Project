@@ -11,5 +11,11 @@ class Brain::UserInfluencerRelationshipsController < ApplicationController
    end
   end
 
+  def destroy
+    @uir = UserInfluencerRelationship.where({user_id: params[:user_id], influencer_id: params[:user][:influencer_id]})[0]
 
+    @uir.destroy
+
+    redirect_to brain_user_profile_path(params[:user][:influencer_id])
+  end
 end

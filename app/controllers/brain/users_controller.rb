@@ -5,6 +5,8 @@ class Brain::UsersController < ApplicationController
 
   def show
     @influencer_hash = @user.find_influencers
+    @influencer_count = @user.user_influencer_relationships.count
+    @influencing_count =@user.influence_num
   end
 
   def new

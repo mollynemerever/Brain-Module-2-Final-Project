@@ -12,13 +12,17 @@ UserInfluencerRelationship.destroy_all
 Comment.destroy_all
 Brain.destroy_all
 
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
+
 #5 users
 
-u1 = User.create(name: "Molly Nemerever", city: "Seattle", email: "molly@gmail.com", professional_industry: "Software Engineering", about_me: "Hi! Looking to connect with other users.")
-u2 = User.create(name: "Njenga Kariuki", city: "Seattle", email: "njenga@aol.com", professional_industry: "Software Engineering", about_me: "Greetings! Hoping to learn from other professionals.")
-u3 = User.create(name: "Sally Staples", city: "Portland", email: "sstaples@gmail.com", professional_industry: "Technology Consulting", about_me: "Looking to inspire others through technology.")
-u4 = User.create(name: "Sam Smith", city: "New York", email: "samuelsmith@hotmail.com", professional_industry: "Data Science", about_me: "Hope to broaden my professional development through this site.")
-u5 = User.create(name: "Alex Adams", city: "Los Angeles", email: "alexa123@yahoo.com", professional_industry: "Cyber Security", about_me: "I love to read and educate others about cyber security. ")
+u1 = User.create(name: "Molly Nemerever", username: "Molly", city: "Seattle", email: "molly@gmail.com", professional_industry: "Software Engineering", about_me: "Hi! Looking to connect with other users.", password: "test", password_confirmation: "test")
+u2 = User.create(name: "Njenga Kariuki", username: "Njenga", city: "Seattle", email: "njenga@aol.com", professional_industry: "Software Engineering", about_me: "Greetings! Hoping to learn from other professionals.", password: "test", password_confirmation: "test")
+u3 = User.create(name: "Sally Staples", username: "Sally", city: "Portland", email: "sstaples@gmail.com", professional_industry: "Technology Consulting", about_me: "Looking to inspire others through technology.", password: "test", password_confirmation: "test")
+u4 = User.create(name: "Sam Smith", username: "Sam", city: "New York", email: "samuelsmith@hotmail.com", professional_industry: "Data Science", about_me: "Hope to broaden my professional development through this site.", password: "test", password_confirmation: "test")
+u5 = User.create(name: "Alex Adams", username: "Alex", city: "Los Angeles", email: "alexa123@yahoo.com", professional_industry: "Cyber Security", about_me: "I love to read and educate others about cyber security.", password: "test", password_confirmation: "test")
 
 
 #user relationships
