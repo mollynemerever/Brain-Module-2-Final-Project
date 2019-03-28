@@ -11,7 +11,7 @@
 <% if @searched == true %>
   <h5>Filtered By: <%= params[:search] %></h5>
   <% elsif @searched == false  %>
-  <h5>No Results</h5>
+  <h5>No Results for <%= params[:search] %></h5>
 <% end  %>
 
 <div class="container">
