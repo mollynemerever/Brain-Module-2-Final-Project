@@ -1,6 +1,8 @@
-<!-- shows the user's homepage/feed -->
-
-<h1>Welcome, <%= @user.name %>!</h1>
+<% if @user.id == session[:user_id] %>
+  <h1>Welcome, <%= @user.name %>!</h1>
+<% else %>
+  <h1><%= @user.name %></h1>
+<% end %>
 
 <p class="copyright text-muted">Influencing: <%= @influencer_count %> | Influencers: <%= @influencer_count %></p>
 <br>

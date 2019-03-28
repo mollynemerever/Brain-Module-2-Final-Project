@@ -1,6 +1,3 @@
-<!-- shows user profile, form is prepopulated and allows for edits.  -->
-<!-- no edits to any posts   -->
-
 <h1>Edit My Profile</h1>
 
 <% if @user.errors.any?  %>
@@ -13,7 +10,7 @@
  </ul>
 <% end  %>
 
-<%= form_for @user, url: brain_user_post_profile_update_path do |f| %>
+<%= form_for @user, url: brain_user_post_profile_update_path, method: :post do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %> <br>
 <br>
@@ -23,7 +20,8 @@
 <%= f.label :photo_url %>
 <%= f.text_field :photo_url %>  <br>
 <br>
-<%= f.collection_select :category_name, @categories, :itself, :itself%>  <br>
+<%= f.label :about_me %>
+<%= f.text_area :about_me, maxlength: 200 %>  <br>
 <br>
 <%= f.submit %>
 

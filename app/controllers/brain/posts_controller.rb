@@ -14,8 +14,6 @@ class Brain::PostsController < ApplicationController
 
   def show
     @author_id = Post.find(params[:id]).user_id
-    #byebug
-    #@author = User.find(@author_id).name
     @new_comment = Comment.new
     @comments = @post.sorted_comments
     @current_user = session[:user_id]
@@ -24,7 +22,7 @@ class Brain::PostsController < ApplicationController
   def new
     @post = Post.new
     @user = User.find(params[:user_id])
-    @content_types = ["Podcast", "Book", "Article", "Video"]
+    @content_types = ["Article", "Book", "Podcast",   "Video"]
   end
 
   def create

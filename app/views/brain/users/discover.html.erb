@@ -1,33 +1,40 @@
-<!-- lists ALL posts -->
-
-
 <!-- filter by category_type AND content type -->
 
-<h1>Discover Page....</h1>
+<h1>Discover Influencers</h1>
 
+<h4>Search by Content Type</h4>
+<%= form_tag brain_user_discover_path, method: :get do  %>
+<%= select_tag :search, options_for_select(@content_types), selected: params[:search] %>
+  <%= submit_tag ("Search") %>
+<% end  %>
 
-
+<% if @searched == true %>
+  <h5>Filtered By: <%= params[:search] %></h5>
+  <% elsif @searched == false  %>
+  <h5>No Results</h5>
+<% end  %>
 
 <div class="container">
    <div class="row">
      <div class="col-lg-8 col-md-10 mx-auto">
 
-<% @posts.each do |post| %>
+<% if @searched == true || @searched == nil %>
+  <% @posts.each do |post| %>
+         <div class="post-preview">
+           <a href="<%= brain_user_post_path(params[:user_id], post)%>">
+             <h2 class="post-title">
+              <%= post.title %>
+             </h2>
+             <h3 class="post-subtitle">
 
-       <div class="post-preview">
-         <a href="<%= brain_user_post_path(params[:user_id], post)%>">
-           <h2 class="post-title">
-            <%= post.title %>
-           </h2>
-           <h3 class="post-subtitle">
+               Posted by <%= User.find(post.user_id).name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> | <%= post.content_type %>
 
-             Posted by <%= User.find(post.user_id).name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> | <%= post.content_type %>
-
-           </h3>
-         </a>
-         <p class="post-meta"><%= image_tag("1f4ac.png", height: "45", width: "45") %> <%= post.comments.count %>  | <%=image_tag("1f9e0.png", height: "45", width: "45")%> <%= post.brains.count %></p>
-       </div>
-    <hr>
+             </h3>
+           </a>
+           <p class="post-meta"><%= image_tag("1f4ac.png", height: "45", width: "45") %> <%= post.comments.count %>  | <%=image_tag("1f9e0.png", height: "45", width: "45")%> <%= post.brains.count %></p>
+         </div>
+      <hr>
+  <% end %>
 <% end %>
 
    </div>
