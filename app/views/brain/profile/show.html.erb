@@ -37,21 +37,22 @@
 <h2> Posts: </h2>
 
 <% @post.each do |post| %>
+  <div class="post-preview">
+       <a href="<%= brain_user_post_path(@user.id, post.id)%>">
+         <h4 class="post-title">
+          <%= post.title %>
+         </h4>
+         <h5 class="post-subtitle">
 
-       <div class="post-preview">
-         <a href="<%= brain_user_post_path(@user.id, post.id)%>">
-           <h2 class="post-title">
-            <%= post.title %>
-           </h2>
-           <h3 class="post-subtitle">
+          Posted by <%= @user.name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> | <%= post.content_type %>
 
-             Posted by <%= @user.name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> | <%= post.content_type %>
+         </h5>
+       </a>
+       <h6 class="post-subtitle"><%=image_tag("1f9e0.png", height: "40", width: "40")%> <%= post.brains.count %>&nbsp; | &nbsp;<%= image_tag("1f4ac.png", height: "40", width: "40") %> <%= post.comments.count %></h6>
+     </div>
+     <div class="lineb">
 
-           </h3>
-         </a>
-         <p class="post-meta"><%= image_tag("1f4ac.png", height: "45", width: "45") %> <%= post.comments.count %>    |    <%=image_tag("1f9e0.png", height: "45", width: "45")%> <%= post.brains.count %></p>
-       </div>
-    <hr>
+  </div>
 <% end %>
 
    </div>

@@ -20,20 +20,22 @@
 
 <% if @searched == true || @searched == nil %>
   <% @posts.each do |post| %>
-         <div class="post-preview">
-           <a href="<%= brain_user_post_path(params[:user_id], post)%>">
-             <h2 class="post-title">
-              <%= post.title %>
-             </h2>
-             <h3 class="post-subtitle">
+    <div class="post-preview">
+         <a href="<%= brain_user_post_path(params[:user_id], post)%>">
+           <h4 class="post-title">
+            <%= post.title %>
+           </h4>
+           <h5 class="post-subtitle">
 
-               Posted by <%= User.find(post.user_id).name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> | <%= post.content_type %>
+           Posted by <%= User.find(post.user_id).name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> | <%= post.content_type %>
 
-             </h3>
-           </a>
-           <p class="post-meta"><%= image_tag("1f4ac.png", height: "45", width: "45") %> <%= post.comments.count %>  | <%=image_tag("1f9e0.png", height: "45", width: "45")%> <%= post.brains.count %></p>
-         </div>
-      <hr>
+           </h5>
+         </a>
+         <h6 class="post-subtitle"><%=image_tag("1f9e0.png", height: "40", width: "40")%> <%= post.brains.count %>&nbsp; | &nbsp;<%= image_tag("1f4ac.png", height: "40", width: "40") %> <%= post.comments.count %></h6>
+       </div>
+       <div class="lineb">
+
+    </div>
   <% end %>
 <% end %>
 

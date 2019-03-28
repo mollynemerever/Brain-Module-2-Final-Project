@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Brian - Content For A Better You</title>
+  <title>Brain - Content For A Better You</title>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -34,10 +34,24 @@
     <% @current_user = User.find(session[:user_id]) %>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <p class="copyright text-muted">
+      <p class="copyright logout">
+        <span>Hello <%=@current_user.name %></span><br>
+        <%= form_for @current_user, url: brain_user_path(@current_user), method: :get do |f| %>
+        <%= f.submit "Homepage", class: "copyright logout" %>
+        <% end %>
+        <%= form_for @current_user, url: brain_user_profile_path(@current_user), method: :get do |f| %>
+        <%= f.submit "View Profile", class: "copyright logout" %>
+        <% end %>
+        <%= form_for @current_user, url: new_brain_user_post_path(@current_user), method: :get do |f| %>
+        <%= f.submit "Create A Post", class: "copyright logout" %>
+        <% end %>
+        <%= form_for @current_user, url: brain_user_discover_path(@current_user), method: :get do |f| %>
+        <%= f.submit "Discover", class: "copyright logout" %>
+        <% end %>
         <%= form_for @current_user, url: brain_end_session_path, method: :delete do |f| %>
         <%= f.submit "Logout", class: "copyright logout" %>
         <% end %>
+
       </p>
     </div>
   </nav>
