@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   namespace :brain do
-    resources :sessions, only: [:new, :create, :destroy]
+    resources :sessions, only: [:new, :create]
+    delete '/sessions', to: 'sessions#destroy', as: 'end_session'
     resources :users do
       get '/discover', to: 'users#discover'
       post '/user_influencer_relationships', to: 'user_influencer_relationships#create'

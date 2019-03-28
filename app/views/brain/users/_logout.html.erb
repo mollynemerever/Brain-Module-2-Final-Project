@@ -1,0 +1,16 @@
+<!-- attempt at a partial to logut -->
+
+<% if !session[:user_id].nil? %>
+  <% @current_user = User.find_by(session[:user_id]) %>
+<%= end %>
+
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <p class="navbar-brand">
+      <%= form_for @current_user, url: brain_end_session_path, method: :delete do |f| %>
+      <%= f.submit "Logout" %>
+      <% end %>
+    </p>
+  </div>
+</nav>
