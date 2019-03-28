@@ -2,17 +2,30 @@
   <%=  flash[:message] %>
 <% end  %>
 
+
+<div class="row form-group justify-center-content">
+  <div class="col-sm-11 col-md-11 col-lg-11 offset-sm-4 offset-md-4 offset-lg-4 text-center mx-auto ">
+
+
 <%= form_tag brain_sessions_path do %>
+<div class="form-group">
   <%= label_tag :username %>
-  <div class="field">
-    <%= text_field_tag :username  %>
-  </div>
+  <%= text_field_tag :username  %>
+</div>
+<div class="form-group">
   <%= label_tag :password %>
-  <div class="field">
-    <%= password_field_tag :password %>
-  </div>
+  <%= password_field_tag :password %>
+</div>
+<div class="form-group text-center">
   <%= submit_tag "Login" %>
+</div>
 <% end  %>
 
+<div class="form-group text-center">
+<%= form_tag new_brain_user_path, {method: :get} do %>
+  <%= submit_tag "Create Account" %>
+<% end %>
+</div>
 
-<%= link_to "Create Account", new_brain_user_path %>
+</div>
+</div>
