@@ -8,11 +8,29 @@
 <%= link_to "Discover Influencers", brain_user_discover_path(@user) %> <br>
 <br>
 
+<div class="container">
+   <div class="row">
+     <div class="col-lg-8 col-md-10 mx-auto">
+
 <h2>My Feed:</h2>
 
 <% @influencer_hash.each do |influencer, post_data| %>
-  <%= link_to post_data[:latest_post_title], brain_user_post_path( post_data[:user_id],post_data[:post_id]) %> <br>
-  Content Type: <%= post_data[:content_type] %> <br>
-  Posted By: <%= influencer %> on  <%= post_data[:latest_post_date] %> <br>
-  <%= image_tag("1f4ac.png")%> <%= post_data[:comment_count] %>  <%= image_tag("1f9e0.png") %> <%= post_data[:brain_count] %>
+<div class="post-preview">
+     <a href="<%= brain_user_post_path(post_data[:user_id], post_data[:post_id])%>">
+       <h2 class="post-title">
+        <%= post_data[:latest_post_title] %>
+       </h2>
+       <h3 class="post-subtitle">
+
+         Posted by <%= influencer %> on <%= post_data[:latest_post_date] %> | <%= post_data[:content_type] %>
+
+       </h3>
+     </a>
+     <p class="post-meta"><%= image_tag("1f4ac.png") %> <%= post_data[:comment_count] %>  | <%=image_tag("1f9e0.png")%> <%= post_data[:brain_count] %></p>
+   </div>
+<hr>
 <% end %>
+
+   </div>
+  </div>
+</div>

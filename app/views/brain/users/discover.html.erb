@@ -5,10 +5,31 @@
 
 <h1>Discover Page....</h1>
 
+
+
+
+<div class="container">
+   <div class="row">
+     <div class="col-lg-8 col-md-10 mx-auto">
+
 <% @posts.each do |post| %>
-  <%=  link_to post.title, brain_user_post_path(params[:user_id], post) %><br>
-  Content Type: <%= post.content_type %> <br>
-  Posted by <%= User.find(post.user_id).name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> <br>
-  <%= image_tag("1f4ac.png") %> <%= post.comments.count %>  <%=image_tag("1f9e0.png")%> <%= post.brains.count %> <br>
-  <br>
-<% end  %>
+
+       <div class="post-preview">
+         <a href="<%= brain_user_post_path(params[:user_id], post)%>">
+           <h2 class="post-title">
+            <%= post.title %>
+           </h2>
+           <h3 class="post-subtitle">
+
+             Posted by <%= User.find(post.user_id).name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> | <%= post.content_type %>
+
+           </h3>
+         </a>
+         <p class="post-meta"><%= image_tag("1f4ac.png") %> <%= post.comments.count %>  | <%=image_tag("1f9e0.png")%> <%= post.brains.count %></p>
+       </div>
+    <hr>
+<% end %>
+
+   </div>
+  </div>
+</div>
