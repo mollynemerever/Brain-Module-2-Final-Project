@@ -1,10 +1,9 @@
 class Brain::ProfileController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit]
+  before_action :set_user, only: [:show, :edit, :update]
 
-  def login 
+  def login
     @profile = User.new
-    @categories = ['Technology', 'Retail', 'Consulting', 'Medicine', 'Real Estate', 'Higher Education'] # or should this be more niche? (all categories within tech)
   end
 
   def create
@@ -24,7 +23,6 @@ class Brain::ProfileController < ApplicationController
   end
 
   def edit
-    @categories = ['Technology', 'Retail', 'Consulting', 'Medicine', 'Real Estate', 'Higher Education'] # or should this be more niche? (all categories within tech)
     @posts = @user.posts
   end
 
@@ -44,7 +42,7 @@ def set_user
 end
 
 def user_params
-  params.require(:user).permit(:name, :city, :email, :professional_industry, :about_me, :photo_url, :category_name)
+  params.require(:user).permit(:name, :city, :email, :about_me, :photo_url, :category_name)
 end
 
 

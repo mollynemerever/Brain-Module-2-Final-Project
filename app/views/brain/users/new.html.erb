@@ -14,7 +14,7 @@
   <br>
   Photo: <%= f.text_field :photo_url %> <br>
   <br>
-  Professional Industry: <%= f.collection_select :category_name, @categories, :itself, :itself %> <br>
+  About Me: <%= f.text_area :about_me, maxlength: 200 %> <br>
   <br>
 
   <%= f.submit "Create Account"%>

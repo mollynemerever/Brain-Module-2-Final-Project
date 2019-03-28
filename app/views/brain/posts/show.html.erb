@@ -1,7 +1,7 @@
 <h1><%= @post.title %> </h1>
 
 <div>
-  Published By: <%= link_to User.find(@author_id).name, brain_user_path(User.find(@author_id)) %> <br>
+  Published By: <%= link_to User.find(@author_id).name, brain_user_profile_path(User.find(@author_id)) %> <br>
   <br>
   Posted At: <%= (@post.created_at.strftime("%B, %d, %Y")) %> <br>
   <br>
