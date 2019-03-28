@@ -1,6 +1,3 @@
-
-<!-- ability to "follow" the user/shows if you already follow -->
-
 <h1><%= @user.name %></h1>
 
 <% if @current_user.id != @user.id  %>
@@ -39,13 +36,9 @@
 <ul><% @post.each do |post| %>
 
 <li>  <%= link_to post.title, brain_user_post_path(@user.id, post.id)%> <br>
-  <%= post.content_type %> <br>
-  <%= post.content_link %> <br> <!-- do we need to show this in feed -->
-  <%= post.description %> <br> <!-- do we need to show this in feed -->
-  <br>
-  <%= image_tag("1f4ac.png") %> <%= post.comments.count %>
-
-  <%=image_tag("1f9e0.png")%> <%= post.brains.count %>
+  Content Type: <%= post.content_type %> <br>
+  Posted by <%= @user.name %> on <%= (post.created_at.strftime("%B %d, %Y")) %> <br>
+  <%= image_tag("1f4ac.png") %> <%= post.comments.count %>  <%=image_tag("1f9e0.png")%> <%= post.brains.count %>
  </li>
 
 <% end  %></ul>

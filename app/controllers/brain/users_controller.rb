@@ -25,9 +25,11 @@ class Brain::UsersController < ApplicationController
   end
 
 
-  def discover #goes to discovery page.
-    @users = User.all 
-  #   #lists users with categories which were selected by user during account creation
+  def discover
+    @posts = Post.all
+    
+
+    #lists users with categories which were selected by user during account creation
   end
 
 
