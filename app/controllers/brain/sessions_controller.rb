@@ -16,7 +16,7 @@ class Brain::SessionsController < ApplicationController
    end
 
    def destroy
-     session.clear
+     session[:user_id] = nil
      redirect_to new_brain_session_path
    end
 
