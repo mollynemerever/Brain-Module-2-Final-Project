@@ -11,13 +11,13 @@ class Brain::SessionsController < ApplicationController
        redirect_to brain_user_path(user)
      else
        flash[:message] = 'Incorrect Login'
-       redirect_to new_brain_session_path
+       redirect_to brain_login_path
      end
    end
 
    def destroy
      session[:user_id] = nil
-     redirect_to new_brain_session_path
+     redirect_to brain_login_path
    end
 
 end
