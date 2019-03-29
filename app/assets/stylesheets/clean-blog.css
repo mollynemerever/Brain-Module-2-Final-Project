@@ -484,3 +484,7 @@ footer .copyright {
 .please_align {
   float: left;
 }
+
+.comment_header {
+  font-weight: bold;
+}

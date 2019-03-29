@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <% if flash[:message] %>
   <%=  flash[:message].each do |message| %>
   <div class="text-center">
@@ -7,31 +10,31 @@
 <% end  %>
 
 <div class="row form-group justify-center-content">
-  <div class="col-sm-11 col-md-11 col-lg-11 offset-sm-4 offset-md-4 offset-lg-4 text-center mx-auto ">
+  <div class="col-sm-12 col-md-12 col-lg-12 offset-sm-4 offset-md-4 offset-lg-4 text-center mx-auto ">
     <%= form_for @user, url: brain_users_path do |f| %>
 
   <div class="form-group">
-    <%= label_tag :name, "Name:" %>
+    <%= label_tag :name, "Name:" %><br>
     <%= f.text_field :name%>
   </div>
   <div class="form-group">
-    <%= label_tag :username, "Username:" %>
+    <%= label_tag :username, "Username:" %><br>
     <%= f.text_field :username %>
   </div>
   <div class="form-group">
-    <%= label_tag :password, "Password:" %>
+    <%= label_tag :password, "Password:" %><br>
     <%= f.text_field :password %>
   </div>
   <div class="form-group">
-    <label>Password <br>Confirmation:</label>
+    <label>Password Confirmation:</label><br>
     <%= f.text_field :password_confirmation%>
   </div>
   <div class="form-group">
-    <%= label_tag :photo_url, "Photo URL:" %>
+    <%= label_tag :photo_url, "Photo URL:" %><br>
     <%= f.text_field :photo_url %>
   </div>
   <div class="form-group">
-    <%= label_tag :about_me, "About Me:" %>
+    <%= label_tag :about_me, "About Me:" %><br>
     <%= f.text_area :about_me, maxlength: 200 %>
   </div>
     <%= f.submit "Create Account"%>
@@ -39,4 +42,5 @@
   <% end %>
 
   </div>
+</div>
 </div>

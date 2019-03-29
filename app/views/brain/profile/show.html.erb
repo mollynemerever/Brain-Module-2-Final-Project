@@ -1,9 +1,12 @@
+<div class="container">
+
+
 <h1><%= @user.name %></h1>
 
 <div class="">
   <% if @current_user.id != @user.id  %>
     <% if @current_user.influencer_ids.include?(@user.id)  %>
-      <h3>Influencing Me</h3>
+      <h4 class="copyright text-muted"><em>Influencing Me</em></h4>
 
       <span>
       <%= form_for @current_user, url: brain_user_delete_relationship_path(@current_user.id), method: :delete do |f| %>
@@ -27,7 +30,7 @@
 <div class="">
   <img src= "<%= @user.photo_url %>" alt= "user image" height="100" width="150"><br>
   <br>
-  About me: <%= @user.about_me %><br>
+  <h4 class="post-subtitle">About me: <%= @user.about_me %></h4><br>
 </div>
 
 
@@ -58,4 +61,5 @@
 
    </div>
   </div>
+</div>
 </div>

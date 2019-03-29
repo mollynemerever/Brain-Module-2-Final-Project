@@ -1,9 +1,11 @@
+<div class="container">
+
 <h1><%= @post.title %> </h1>
 
 <div>
   <h4 class= "post-subtitle">
   Posted By: <%= link_to User.find(@author_id).name, brain_user_profile_path(User.find(@author_id)) %>
-  on: <%= (@post.created_at.strftime("%B, %d, %Y")) %> |
+  on <%= (@post.created_at.strftime("%B, %d, %Y")) %> |
    <%= link_to @post.content_type,@post.content_link, target: :_blank %>
   </h4>
   <h4><%= link_to image_tag("1f9e0.png", height: "45", width: "45"), brain_user_post_brains_path(@current_user, @post.id), method: :post, controller: 'brains'%> <%= @post.brains.count %> &nbsp; | &nbsp;
@@ -22,7 +24,7 @@
           <span class="tip tip-up"></span>
           <div class="message">
 
-        <span class="post-subtitle"><%= comment.find_user %> - <%= (comment.created_at.strftime("%B %d, %Y")) %></span><br><span>
+        <span class="comment_header"><%= comment.find_user %> - <%= (comment.created_at.strftime("%B %d, %Y")) %></span><br><span>
   	    <%= comment.text %></span>
         </div>
       </div>
@@ -30,14 +32,10 @@
   </div>
      <% end %>
 
-<!-- test -->
-
-
-
-<!-- test -->
 
 
 <div class=" container please_align">
+  <h5>Add Comment:</h5>
   <%= form_for @new_comment, url: brain_user_post_comments_path(@current_user, @post.id) do |f| %>
   <%= f.text_area :text, maxlength: 200 %> <br>
   <%= f.label :text, "200 characters", class:"post-subtitle" %> <br>
@@ -45,5 +43,5 @@
   <%= f.submit "Create Comment" %>
   <% end  %>
 </div>
-<br>
-<%= link_to "Back to Homepage", brain_user_path(@current_user) %>
+</div>
+</div>
