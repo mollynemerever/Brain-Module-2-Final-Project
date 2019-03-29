@@ -27,6 +27,7 @@ class Brain::UsersController < ApplicationController
 
 
   def discover
+    @new_comment = Comment.new
     @content_types = ["Article", "Book", "Podcast",   "Video"]
     @posts = Post.search(params[:search])
       if @posts == nil
