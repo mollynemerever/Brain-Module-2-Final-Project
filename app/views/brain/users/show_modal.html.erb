@@ -1,0 +1,45 @@
+<!-- NOT A REAL VIEW -- ONLY HERE FOR TEST -->
+
+<div class="container">
+
+<% if @user.id == session[:user_id] %>
+  <h1>Welcome, <%= @user.name %>!</h1>
+<% else %>
+  <h1><%= @user.name %></h1>
+<% end %>
+
+<p class="copyright text-muted">Influencing: <%= @influencing_count %> | Influencers: <%= @influencer_count %></p>
+<div class="container">
+   <div class="row">
+     <div class="col-lg-8 col-md-8 mx-auto">
+
+<h2>My Feed:</h2>
+
+<% if @influencer_count == 0 %>
+<h3>Your feed is empty! <%= link_to "Click", brain_user_discover_path(@user) %> to discover influencers.</h3>
+<% end %>
+
+<% @influencer_hash.each do |influencer, post_data| %>
+<div class="post-preview">
+     <a href="<%= brain_user_post_path(post_data[:user_id], post_data[:post_id])%>">
+       <h4 class="post-title">
+        <%= post_data[:latest_post_title] %>
+       </h4>
+       <h5 class="post-subtitle">
+
+         Posted by <%= influencer %> on <%= post_data[:latest_post_date] %> | <%= post_data[:content_type] %>
+
+       </h5>
+     </a>
+     <h6 class="post-subtitle"><%=image_tag("1f9e0.png", height: "40", width: "40")%> <%= post_data[:brain_count] %>&nbsp; | &nbsp;<%= image_tag("1f4ac.png", height: "40", width: "40") %> <%= post_data[:comment_count] %></h6>
+   </div>
+   <div class="lineb">
+
+   </div>
+<% end %>
+
+   </div>
+  </div>
+</div>
+
+</div>

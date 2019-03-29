@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate_user
       if !logged_in?
-        redirect_to new_brain_session_path
+        redirect_to brain_login_path
       end
     end
 
