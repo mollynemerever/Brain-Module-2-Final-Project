@@ -6,7 +6,7 @@
 
 [INSERT PROJECT GIF]
 
-##Project FAQ
+## Project FAQ
 #### 1. What is Brain?
 Brain is a social community dedicated to sharing content that inspires personal and professional growth.
 
@@ -26,9 +26,7 @@ This project is hosted on Heroku and can be accessed here: [INSERT URL]
 4.	Create at least twenty methods across models.
 5.	Do not use Javascript (since next learning module is dedicated to Javascript).
 
-
-#### Time allocated
-4 days
+#### Time allocated: 4 days
 
 ## Database Schema Diagram
 ![Data model](mod2_project_diagram_v2.png)
