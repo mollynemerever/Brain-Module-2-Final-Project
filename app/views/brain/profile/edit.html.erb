@@ -1,4 +1,4 @@
-<h1>Edit My Profile</h1>
+<h4 class= "post-subtitle">Edit My Profile</h4>
 
 <% if @user.errors.any?  %>
  <div id="error explanation">
@@ -8,34 +8,36 @@
    <li><%= message %></li>
  <% end  %>
  </ul>
-<% end  %>
+<% end %>
+
+<div class="row form-group text-left">
+  <div class="col-sm-11 col-md-11 col-lg-11 offset-sm-4 offset-md-4 offset-lg-4 text-center mx-auto ">
 
 <%= form_for @user, url: brain_user_post_profile_update_path, method: :post do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %> <br>
-<br>
-<%= f.label :photo_url %>
-<%= f.text_field :photo_url %>  <br>
-<br>
-<%= f.label :about_me %>
-<%= f.text_area :about_me, maxlength: 200 %>  <br>
-<br>
-<%= f.submit %>
-
+<div class="form-group text-left">
+<%= f.label :name, "Name:" %>
+<%= f.text_field :name %>
+</div>
+<div class="form-group text-left">
+<%= f.label :photo_url, "Photo URL:" %>
+<%= f.text_field :photo_url %>
+</div>
+<div class="form-group text-left">
+<%= f.label :about_me, "About Me:" %>
+<%= f.text_area :about_me, maxlength: 200 %>
+</div>
+<div class="form-group text-left">
+<%= f.submit "Update Profile" %>
+</div>
 <% end  %>
 
-<h1> Delete A Post</h1>
+<h4 class="post-subtitle text-left"> Delete A Post</h4>
 
 <% @posts.each do |post| %>
-  <div class="post">
-   <span><%= link_to post.title, brain_user_post_path(@user.id, post.id) %></span>
+  <div class="post text-left">
+   <%= link_to post.title, brain_user_post_path(@user.id, post.id) %>
    <%= form_tag brain_user_post_path(post.user, post.id), method: "delete" do %>
  <%= submit_tag "Delete" %>
   <% end %>
   </div>
 <% end %>
-
-<br>
-<br>
-
-<%= link_to "Back to My Homepage", brain_user_path(@user) %>
