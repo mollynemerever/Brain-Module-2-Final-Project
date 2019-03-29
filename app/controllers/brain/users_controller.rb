@@ -11,7 +11,6 @@ class Brain::UsersController < ApplicationController
 
   def new
     @user = User.new
-    @categories = ['Technology', 'Retail', 'Consulting', 'Medicine', 'Real Estate', 'Higher Education'] # or should this be more niche? (all categories within tech)
   end
 
   def create
@@ -19,7 +18,7 @@ class Brain::UsersController < ApplicationController
    if @user.valid?
      @user.save
      session[:user_id] = @user.id
-     redirect_to brain_user_profile_path(@user)
+     redirect_to brain_user_path(@user.id)
    else
      flash[:message] = @user.errors.full_messages
      redirect_to new_brain_user_path

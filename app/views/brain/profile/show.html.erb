@@ -19,13 +19,14 @@
       <% end %>
     <% end %>
   <% else %>
-      <%= link_to "Edit My Profile", brain_user_profile_edit_path(@user)  %>
+      <%= link_to "Edit My Profile", brain_user_profile_edit_path(@user)  %> <br>
   <% end  %> <br>
 </div>
 
 
 <div class="">
   <img src= "<%= @user.photo_url %>" alt= "user image" height="100" width="150"><br>
+  <br>
   About me: <%= @user.about_me %><br>
 </div>
 
@@ -57,8 +58,4 @@
 
    </div>
   </div>
-</div>
-
-<div class="">
-  <%= link_to "My Homepage", brain_user_path(@current_user.id)  %>
 </div>
