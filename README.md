@@ -20,7 +20,7 @@ There is a gap between social media platforms and dedicated news and blog sites.
 This project is hosted on Heroku and can be accessed here: https://guarded-coast-75303.herokuapp.com/brain/login
 
 ## Project Requirements
-1.	Create a fully functioning website using Rails
+1.	Create a fully functioning website using Rails.
 2.	Build user authentication and authorization.
 3.	Build a database schema (using Postgres) with a minimum of five models.
 4.	Create at least twenty methods across models.
