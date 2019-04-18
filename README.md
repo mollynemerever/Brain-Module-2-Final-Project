@@ -14,7 +14,7 @@ Brain is a social community dedicated to sharing content that inspires personal 
 After creating an account, users influence others by sharing posts that contain a piece of content — book, podcast, video, or article (from blogs or news sites) — or discover content based on personal and professional areas of interest. Users can follow one another and view a homepage feed of each post from their influencers.
 
 #### 3. What is the customer problem we are solving?
-There is a gap between social media platforms and dedicated news and blog sites. Most content consumed on social media platforms does not contribute to personal growth. Even if you are someone who uses Twitter or Facebook for news, you likely find yourself drifting into topic areas you don’t really care about or filtering through ads and poorly curated suggestions. Brian provides a platform for consuming empowering content without the junk, leveraging the power of people who have or seek shared experiences and information.  
+There is a gap between social media platforms and dedicated news and blog sites. Most content consumed on social media platforms does not contribute to personal growth. Even if you are someone who uses Twitter or Facebook for news, you likely find yourself drifting into topic areas you don’t really care about or filtering through ads and poorly curated suggestions. Brain provides a platform for consuming empowering content without the junk, leveraging the power of people who have or seek shared experiences and information.  
 
 ## Access Instructions
 This project is hosted on Heroku and can be accessed here: https://guarded-coast-75303.herokuapp.com/brain/login
