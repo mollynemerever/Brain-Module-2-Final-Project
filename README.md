@@ -4,8 +4,6 @@
 
 ###### Project completed as part of [Flatiron School](https://flatironschool.comcampuses/seattle/) curriculum.
 
-[INSERT PROJECT GIF]
-
 ## Project FAQ
 #### 1. What is Brain?
 Brain is a social community dedicated to sharing content that inspires personal and professional growth.
