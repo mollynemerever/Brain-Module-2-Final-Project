@@ -16,6 +16,7 @@ There is a gap between social media platforms and dedicated news and blog sites.
 
 ## Access Instructions
 This project is hosted on Heroku and can be accessed here: https://guarded-coast-75303.herokuapp.com/brain/login
+Video demonstration: https://www.youtube.com/watch?v=GKgransM6uk&feature=youtu.be
 
 ## Project Requirements
 1.	Create a fully functioning website using Rails.
