@@ -4,6 +4,8 @@
 
 ###### Project completed as part of [Flatiron School](https://flatironschool.comcampuses/seattle/) curriculum.
 
+![project GIF](https://github.com/mollynemerever/Brain-Module-2-Final-Project/blob/master/ezgif.com-optimize.gif)
+
 ## Project FAQ
 #### 1. What is Brain?
 Brain is a social community dedicated to sharing content that inspires personal and professional growth.
