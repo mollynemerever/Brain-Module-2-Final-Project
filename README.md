@@ -2,7 +2,7 @@
 
 #### Molly Nemerever & Njenga Kariuki
 
-###### Project completed as part of [Flatiron School](https://flatironschool.comcampuses/seattle/) curriculum.
+###### Project completed as part of [Flatiron School](https://flatironschool.com/campuses/seattle/) curriculum.
 
 ![project GIF](https://github.com/mollynemerever/Brain-Module-2-Final-Project/blob/master/ezgif.com-optimize.gif)
 
